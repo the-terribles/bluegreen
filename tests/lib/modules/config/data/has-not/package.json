@@ -1,0 +1,35 @@
+{
+  "name": "ignore-me",
+  "version": "0.0.1",
+  "description": "test file",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-terribles/bluegreen.git"
+  },
+  "keywords": [
+  ],
+  "dependencies": {
+    "async": "^1.5.2",
+    "aws-sdk": "^2.2.43",
+    "colors": "^1.1.2",
+    "dockerode": "^2.2.10",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.6.1",
+    "minimist": "^1.2.0",
+    "moment": "^2.12.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "author": "Richard Clayton <rlc.blacksun@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the-terribles/bluegreen/issues"
+  },
+  "homepage": "https://github.com/the-terribles/bluegreen#readme"
+}
