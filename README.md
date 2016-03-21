@@ -102,13 +102,6 @@ bluegreen <service> versions
 bluegreen www versions
 ```
 
-Delete a Version of a Service
-```bash
-bluegreen <service> delete version <version>
-
-bluegreen www delete version 0.3.1
-```
-
 Create a new Version of a Service
 ```bash
 bluegreen <service> create version <version>
@@ -123,6 +116,13 @@ Deploy a Version of a Service to an Environment
 bluegreen <service> deploy <version> to <environment>
 
 bluegreen www deploy 0.3.2 to blue
+```
+
+Delete a Version of a Service
+```bash
+bluegreen <service> delete version <version>
+
+bluegreen www delete version 0.3.1
 ```
 
 #### Gateway commands
@@ -182,4 +182,10 @@ Detach an environment from a Gateway.
 bluegreen <service> detach <environment> from <gateway>
 
 bluegreen www detach blue from production
+```
+
+#### Debug Commands
+
+```bash
+bluegreen debug:create-version
 ```

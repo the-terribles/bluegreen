@@ -9,8 +9,8 @@ var async = require('async'),
  * Initialize BlueGreen, run the command, and exit.
  */
 async.series([
-  (next) => bluegreen.init(next),
-  (next) => bluegreen.run(argv, next)
+  (next) => bluegreen.init(argv, next),
+  (next) => bluegreen.run(next)
 ], (err) => {
   process.exit((err)? 1 : 0);
 });
