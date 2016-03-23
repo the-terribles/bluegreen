@@ -12,7 +12,10 @@ In the future, I'd like to migrate this to ECS.  Keep in mind, this represents m
 
 `Service`: is a unit of management for an independent service-providing entity.  Typically a single application, like a Node.js web server, but it can also be something like multiple Docker containers that are always deployed together.  These are the core of what BlueGreen manages.
 
-`Version`: each service has zero or more deployable Versions.  A large part of the BlueGreen workflow is specifying what version should be deployed to a target Environment, and whether it should be accessible to a specific Gateway.
+`Version`: each service has zero or more deployable Versions.  A large part of the BlueGreen workflow is specifying what version should be deployed to a target Environment, and whether it should be accessible to a specific Gateway.  The default implementation of versions is an Elastic Beanstalk Docker deployment as an Application Version.  This implies two subphases of version creation:
+
+*  `Build`: build a codebase.  The default action is to build a Docker image.
+*  `Push`: push the deployment artifacts to a remote repositories.  The default action is to push a Docker image to a Docker repository.
 
 `Environments`: where Versions of your Services get deployed.  By default, we use `blue` and `green`, because conceptually, that's the whole point of this framework.  However, we aren't so unimaginative that we don't realize you might also want to deploy to `test` or `qa`.
 
@@ -20,7 +23,7 @@ In the future, I'd like to migrate this to ECS.  Keep in mind, this represents m
 
 **Modes of Operation**
 
-BlueGreen assumes that
+The BlueGreen toolchain can be used within the directory of a configured codebase or from any directory in your shell.  This is similar to tools like `Vagrant`.  Some commands are only designed to work within a codebase (like creating a new version), while the majority of commands can be operating from anywhere in a shell (like listing model constructs, or modifying entities from resources external to the local machine).
 
 
 ## Usage
@@ -141,11 +144,10 @@ bluegreen <service> gateways
 bluegreen www gateways
 ```
 
-Create a Gateway
+Create a Gateway (and attach to environment)
 
 ```bash
 bluegreen <service> create gateway <name>
-
 bluegreen www create gateway production
 ```
 
